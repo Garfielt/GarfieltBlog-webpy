@@ -1,0 +1,67 @@
+$def with (tpldata)
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>	
+	<meta charset="utf-8">
+	<title>${tpldata['setting']['webtitle']}</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/Garfielt.css" />
+	<script src="/static/js/jquery-1.4.2.min.js"></script>
+	<style>
+		#main {
+			text-align: center;
+			width:600px;
+			height:300px;
+			overflow-x:hidden;
+			overflow-y:hidden;
+			border: #666666 solid 6px;
+			margin:100px auto;
+			padding:2px 4px;
+			font-size:14px;
+			background:#f6f6f6;
+		}
+		#logo {
+			margin:50px auto;
+		}
+		.login {
+			float:right;
+			margin-right: 100px;
+		}
+		p.main input {
+		    border:1px solid #d3d3d3;
+			color:#555;
+			padding:5px;
+			float:left;
+			width:178px;
+		}
+		p.main label {
+			float:left;
+			padding:5px;
+			display:inline;
+			margin-left:30px;
+			font-size:14px;
+			color:#000;
+			margin-right:10px;
+		}
+	</style>
+</head>
+<body class="mainpage">
+	<div id="main">
+		<div id="logo">
+			<a href="#"><img src="/static/images/logo.png" alt="" /></a>
+		</div>
+		<div id="box">
+			<form action="" method="POST">
+			<p class="main">
+				<label>昵称: </label>
+				<input name="user" type="text" id="user" value=""/>
+				<label>密码: </label>
+				<input type="password" type="text" id="passwd"  name="passwd" value="">	
+			</p>
+			<p class="space">
+				<input type="submit" value=" 登  陆 " class="login btn btn-primary" />
+			</p>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

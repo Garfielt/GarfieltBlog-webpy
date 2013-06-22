@@ -1,0 +1,46 @@
+$def with (tpldata)
+<div id="side" class="right">
+  <div class="widget">
+    <b>站点公告</b>
+    <ul>
+      $:{tpldata['setting']['announcement']}
+    </ul>
+  </div>
+  <div class="widget">
+    <b>个人信息</b>
+    <ul>
+      $:{tpldata['setting']['aboutme']}
+    </ul>
+  </div>
+  <div class="widget">
+    <b>最新文章</b>
+    <ul>
+    $for post in tpldata['recent_posts']:
+      $if post.post_url == "":
+        <li><a href="/blog/${post.post_id}.html">${post.post_title}</a></li>
+      $else:
+        <li><a href="/blog/${post.post_url}.html">${post.post_title}</a></li>
+    </ul>
+  </div>
+  <div class="widget">
+    <b>分类标签</b>
+    <ul>
+    $for tag in tpldata['tags']:
+      <a href="/tag/${tag.tag_name}">${tag.tag_name}</a>(${tag.tag_num}) 
+    </ul>
+  </div>
+  <div class="widget">
+    <b>最新评论</b>
+    <ul id="recentcomments">
+      $for comment in tpldata['recent_comments']:
+        <li>${comment.comments_author}: <a href="/blog/${comment.comments_post_id}.html#Comment_${comment.comments_id}">${comment.comments_content}</a></li>
+    </ul>
+  </div>
+  <div class="widget">
+    <b>友情链接</b>
+    <ul>
+    $for link in tpldata['links']:
+      <li title="${link.link_description}"><a href="${link.link_url}" target="_blank">${link.link_name}</a></li>
+    </ul>
+  </div>
+</div>

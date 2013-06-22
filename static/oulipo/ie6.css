@@ -1,0 +1,22 @@
+ul.commentlist {
+	margin-top: -2em;
+}
+
+img.avatar {
+	margin-top: 4em;
+}
+
+.commenttext {
+	margin-top: 1.5em;
+}
+
+#main_nav a:hover, .current_page_item, .current {
+	background: #EEE;
+	width: 100%;
+	border-right: 0;
+}
+
+
+.monthly {
+	padding-top: 1.5em;
+}

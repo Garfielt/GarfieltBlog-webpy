@@ -1,0 +1,89 @@
+$def with (tpldata)
+$:{UIModule('header')}
+	<div class="page-header">
+		<h1>系统设置 <small>系统参数设置</small></h1>
+	</div>
+    <table width="800" border="0" cellspacing="0" cellpadding="1" class="list">
+        <form method="post" action="" class="forms columnar">
+        <thead>
+            <tr>
+                <th width="120">设置项目</th>
+                <th width="680">参数详情</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>博客主标题:</td>
+                <td><input type="text" name="webtitle" id="webtitle" value="${tpldata['esetting'].webtitle}" class="width-fix" /></td>
+            </tr>
+            <tr>
+                <td>博客副标题:</td>
+                <td><input type="text" name="websubtitle" id="websubtitle" value="${tpldata['esetting'].websubtitle}" class="width-fix" /></td>
+            </tr>
+            <tr>
+                <td>博客描述:</td>
+                <td><textarea name="webdes" rows="4" id="webdes" class="width-fix">${tpldata['esetting'].webdes}</textarea></td>
+            </tr>
+            <tr>
+                <td>博客关键字:</td>
+                <td><textarea name="webkeywords" rows="4" id="webkeywords" class="width-fix">${tpldata['esetting'].webkeywords}</textarea></td>
+            </tr>
+            <tr>
+                <td>博客地址:</td>
+                <td><input type="text" name="weburl" id="weburl" value="${tpldata['esetting'].weburl}" class="width-fix" /></td>
+            </tr>
+            <tr>
+                <td>加速地址:</td>
+                <td><input type="text" name="webcdn" id="websubtitle" value="${tpldata['esetting'].webcdn}" class="width-fix" /></td>
+            </tr>
+            <tr>
+                <td>列表数量:</td>
+                <td><input type="text" name="listnum" id="listnum" value="${tpldata['esetting'].listnum}" class="width-fix" /></td>
+            </tr>
+            <tr>
+                <td>截取长度:</td>
+                <td><input type="text" name="subtitle" id="subtitle" value="${tpldata['esetting'].subtitle}" class="width-fix" /></td>
+            </tr>
+            <tr>
+                <td>主题选择:</td>
+                <td><select name="template" class="width-fix" id="template">
+                $for theme in tpldata['themes']:
+                    <option value="${theme}"
+                    $if theme == tpldata['esetting'].template:
+                        selected
+                    >${theme} 主题</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td>文章地址翻译:</td>
+                <td><select name="urlTrans" class="width-fix" id="urlTrans">
+                    <option value="English">English</option>
+                    <option value="Pinyin"
+                    $if tpldata['esetting'].urlTrans == 'Pinyin':
+                        selected
+                    >汉语拼音</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td>网站公告:</td>
+                <td><textarea name="announcement" rows="4" id="announcement" class="width-fix">${tpldata['esetting'].announcement}</textarea></td>
+            </tr>
+            <tr>
+                <td>个人信息:</td>
+                <td><textarea name="aboutme" rows="4" id="aboutme" class="width-fix">${tpldata['esetting'].aboutme}</textarea></td>
+            </tr>
+            <tr>
+                <td>评论插件:</td>
+                <td><textarea name="plug_com" rows="4" id="plug_com" class="width-fix">${tpldata['esetting'].plug_com}</textarea></td>
+            </tr>
+            <tr>
+                <td>统计代码:</td>
+                <td><textarea name="plug_stat" rows="4" id="plug_stat" class="width-fix">${tpldata['esetting'].plug_stat}</textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" name="send" class="btn" value=" 保存设置 " /></td>
+            </tr>
+        </tbody>
+        </form>
+    </table>
+$:{UIModule('footer')}

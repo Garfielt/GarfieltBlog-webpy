@@ -1,0 +1,24 @@
+$def with (tpldata)
+		<div class="clear"></div>
+		<div id="footer">
+			<a href="/">Power By Garfielt</a> | <a href="">管理</a>
+		</div>
+	</div>
+</div>
+<!-- main end -->
+</body>
+<script src="/static/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="${tpldata['setting']['webcdn']}/static/syntaxhighlighter/scripts/shCore.js"></script>
+<script type="text/javascript" src="${tpldata['setting']['webcdn']}/static/syntaxhighlighter/scripts/shBrushPhp.js"></script>
+<script type="text/javascript" src="${tpldata['setting']['webcdn']}/static/syntaxhighlighter/scripts/shBrushPython.js"></script>
+<script type="text/javascript" src="${tpldata['setting']['webcdn']}/static/syntaxhighlighter/scripts/brush.js"></script>
+<script type='text/javascript'>
+<!--
+	$$(document).ready(function(){
+		SyntaxHighlighter.config.clipboardSwf = '${tpldata['setting']['webcdn']}/static/syntaxhighlighter/scripts/clipboard.swf';
+		SyntaxHighlighter.all();
+	});
+-->
+</script>
+$:{tpldata['setting']['plug_stat']}
+</html>

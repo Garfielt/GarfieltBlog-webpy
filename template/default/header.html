@@ -1,0 +1,36 @@
+$def with (tpldata)
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>${tpldata['setting']['webtitle']}</title>
+    <meta name="description" content="${tpldata['setting']['webdes']}" />
+    <meta name="keywords" content="${tpldata['setting']['webkeywords']}" />
+    <link rel="stylesheet" type="text/css" href="${tpldata['setting']['webcdn']}/static/css/style.css?v=b5740" />
+    <link type="text/css" rel="stylesheet" href="${tpldata['setting']['webcdn']}/static/syntaxhighlighter/styles/shCore.css"/>
+    <link type="text/css" rel="stylesheet" href="${tpldata['setting']['webcdn']}/static/syntaxhighlighter/styles/shThemeDefault.css"/>
+</head>
+<body>
+<!-- main start -->
+<div id="main">
+    <div id="header">
+        <div class="left" title="${tpldata['setting']['webdes']}">
+            <h1><a href="/">${tpldata['setting']['webtitle']}</a></h1>
+            <span id="subtitle">${tpldata['setting']['websubtitle']}</span>
+        </div>
+        <div class="right" id="sdiv">
+            <form id="sform" action="/search" method="post">
+            <input id="sinput" type="text" name="s">
+            <input id="sbtn" type="submit" value="搜索">
+            </form>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div id="pagenav">
+        <a title="首页" href="/">首 页</a>
+        $for category in tpldata['categorys']:
+            $if category['category_type'] == 1:
+                <a title="${category['category_description']}" href="${category['category_short']}">${category['category_name']}</a>
+            $else:
+                <a title="${category['category_description']}" href="/category/${category['category_short']}">${category['category_name']}</a>
+    </div>

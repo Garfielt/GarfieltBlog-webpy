@@ -1,0 +1,51 @@
+$def with (tpldata)
+$:{UIModule('header')}
+	<div class="page-header">
+		<h1>友情链接 <small>友情链接添加修改</small></h1>
+	</div>
+	<div class="third">
+		<form method="post" action="/manage/links" class="forms columnar">
+			<input type="hidden" name="linkid" value="${tpldata['elink'].link_id}" />
+			<ul>
+				<li>
+					<section>名称</section>
+					<input name="linkname" type="text" class="width-100" id="linkname" value="${tpldata['elink'].link_name}" />
+				</li>
+				<li>
+					<section>地址</section>
+					<input name="linkurl" type="text" class="width-100" id="linkurl" value="${tpldata['elink'].link_url}"/>
+				</li>
+				<li>
+					<section>描述</section>
+					<textarea name="linkdes" class="width-100" id="linkdes" style="height: 100px;">${tpldata['elink'].link_description}</textarea>
+				</li>
+				<li class="push">
+					<input type="submit" name="send" class="btn" value="添  加" />
+				</li>		        		
+			</ul>
+		</form>
+	</div>
+	<div class="twothird">
+		<table class="hovered" width="100%">
+			<thead>
+				<tr>
+					<th>序号</th>
+					<th>名称</th>
+					<th>描述</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+			$for link in tpldata['links']:
+				<tr>
+					<td>${loop.index}</td>
+					<td><a href="${link.link_url}" target="_blank">${link.link_name}</a></td>
+					<td>${link.link_description}</td>
+					<td><a href="/manage/links/edit/${link.link_id}" class="edit">编辑</a> <a onClick="return confirm('确认删除该链接吗？')" href="/manage/links/delete/${link.link_id}" class="delete">删除</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</body>
+</html>

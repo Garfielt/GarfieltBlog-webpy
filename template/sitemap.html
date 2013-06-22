@@ -1,0 +1,23 @@
+$def with (setting, categorys, posts)
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>http://blog.iscsky.net/</loc>
+    <lastmod>2013-06-18</lastmod>
+    <changefreq>always</changefreq>
+  </url>
+$for category in categorys:
+  $if category['category_type'] == 0:
+    <url>
+      <loc>${setting['weburl']}/category/${category['category_short']}</loc>
+      <lastmod>2010-01-12</lastmod>
+      <changefreq>daily</changefreq>
+    </url>
+$for post in posts:
+  ${Purl(post)}
+  <url>
+    <loc>${setting['weburl']}${post.url}</loc>
+    <lastmod>${post.post_date}</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+</urlset>

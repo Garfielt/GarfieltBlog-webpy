@@ -1,0 +1,25 @@
+$def with (tpldata)
+$:{UIModule('header')}
+<div id="entry_content">
+<!-- Postlist start -->
+$for post in tpldata['posts']:
+  ${Post_format(post)}
+  <div class="post hentry category-article">
+    <h2><a href="${post.url}">${post.post_title}</a></h2>
+    <p class="date">发布时间：${post.post_date} § <span class="commentcount">${post.post_view} <a href="${post.url}#comments">§ <span class="commentcount">${post.post_com_num}</span></a></p>
+    <div class="entry">
+      $:{post.content}
+      <p class="tags">Tags: $:{post.tags}</p>
+      <p class="more"><a href="${post.url}" title="${post.post_title}">阅读全文...</a></p>
+    </div>
+  </div>
+<!-- Postlist end -->
+
+<!-- Pages start -->
+  <div class="navigation">
+    <ol class="pages">$:{tpldata['pagestr']}</ol>
+  </div>
+<!-- Pages end -->
+</div>
+$:{UIModule('sidebar')}
+$:{UIModule('footer')}

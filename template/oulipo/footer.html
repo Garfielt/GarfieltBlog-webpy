@@ -1,0 +1,30 @@
+$def with (tpldata)
+      </div>
+		</div>
+	</div>
+	
+	<div id="footer">
+		<div id="footer-inner">
+			<div id="footer_contact"></div>
+			<div id="footer_info">
+				<p><a href="http://andreamignolo.com/oulipo">Oulipo</a> by <a 
+				href="http://andreamignolo.com/">Mignolo</a> | Modify by <a href="/">Garfielt</a></P>
+				<P>Powered by <a href="http://blog.iscsky.net">Garfielt Blog</a></P>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="${tpldata['setting']['webcdn']}/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="${tpldata['setting']['webcdn']}/static/syntaxhighlighter/scripts/shCore.js"></script>
+<script type="text/javascript" src="${tpldata['setting']['webcdn']}/static/syntaxhighlighter/scripts/shBrushPhp.js"></script>
+<script type="text/javascript" src="${tpldata['setting']['webcdn']}/static/syntaxhighlighter/scripts/shBrushPython.js"></script>
+<script type='text/javascript'>
+<!--
+	$$(document).ready(function(){
+		SyntaxHighlighter.config.clipboardSwf = '${tpldata['setting']['webcdn']}/static/syntaxhighlighter/scripts/clipboard.swf';
+		SyntaxHighlighter.all();
+	});
+-->
+</script>
+$:{tpldata['setting']['plug_stat']}
+</html>

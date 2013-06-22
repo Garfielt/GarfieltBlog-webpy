@@ -1,0 +1,78 @@
+$def with (tpldata)
+$:{UIModule('header')}
+<div class="page-header">
+	<h1>分类目录管理 <small>分类目录管理修改</small></h1>
+</div>
+<div class="third">
+	<form method="post" action="/manage/category" class="forms columnar">
+		<input type="hidden" name="catid" value="${tpldata['ecategory'].category_id}" />
+			<ul>
+				<li>
+					<section>名称:</section>
+					<input name="catname" type="text" class="width-50" id="catname" value="${tpldata['ecategory'].category_name}" />
+				</li>
+				<li>
+					<section>排序:</section>
+					<input name="catsort" type="text" class="width-50" id="catsort" value="${tpldata['ecategory'].category_sort}"/>
+				</li>
+				<li>
+					<section>类型:</section>
+					<input name="cattype" type="radio" value="0" 
+					$if tpldata['ecategory'].category_type == 0 or tpldata['ecategory'].category_type == "":
+						checked
+					 onClick="$$("#tlabel").val('分类别名:');">分类
+					<input name="cattype" type="radio" value="1"
+					$if tpldata['ecategory'].category_type == 1:
+						checked
+					 onClick="$$("#tlabel").val('导航地址:');">导航
+				</li>
+				<li>
+					<section id="tlabel">
+					$if tpldata['ecategory'].category_type == 0 or tpldata['ecategory'].category_type == "":
+						分类别名：
+					$elif tpldata['ecategory'].category_type == 1:
+						导航地址：
+					</section>
+					<input name="catshort" type="text" class="width-100" id="catshort" value="${tpldata['ecategory'].category_short}"/>
+				</li>
+				<li>
+					<section>描述:</section>
+					<textarea name="catdes" class="width-100" id="catdes" style="height: 100px;">${tpldata['ecategory'].category_description}</textarea>
+				</li>
+				<li class="push">
+					<input type="submit" name="send" class="btn btn-primary" value=" 保  存 " />
+				</li>		        		
+			</ul>
+	</form>
+</div>
+<div class="twothird">
+	<table class="hovered" width="100%">
+		<thead>
+			<tr>
+				<th>序号</th>
+				<th>名称</th>
+				<th>类型</th>
+				<th>排序</th>
+				<th>别名/地址</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+		$for category in tpldata['categorys']:
+			<tr title="${category['category_description']}">
+				<td>${loop.index}</td>
+				<td>${category['category_name']}</td>
+				<td>
+				$if category['category_type'] == 0:
+					分类
+				$else:
+					导航
+				</td>
+				<td>${category['category_sort']}</td>
+				<td>${category['category_short']}</td>
+				<td><a href="/manage/category/edit/${category['category_id']}" class="edit">编辑</a> <a onClick="return confirm('确认删除该栏目分类吗？')" href="/manage/category/delete/${category['category_id']}" class="delete">删除</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+$:{UIModule('footer')}

@@ -1,0 +1,38 @@
+$def with (tpldata)
+$:{UIModule('header')}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>	
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/static/css/Garfielt.css" />
+	<script src="/static/js/jquery-1.4.2.min.js"></script>
+</head>
+<body class="mainpage">
+<div id="container">
+	<div class="page-header">
+		<h1>附件管理 <small>附件管理查看</small></h1>
+	</div>
+	<table class="hovered" width="100%">
+		<thead>
+			<tr>
+				<th>序号</th>
+				<th>文件名称</th>
+				<th>文件大小</th>
+				<th>修改时间</th>
+				<th>管理操作</th>
+			</tr>
+		</thead>
+		<tbody>
+		$for ifile in tpldata['filedata']:
+			<tr>
+				<td>$loop.index</td>
+				<td>$ifile['fname']</td>
+				<td>$ifile['ftype']</td>
+				<td>$ifile['fedittime']</td>
+				<td><a href="/manage/post/edit/" class="edit">编辑</a> <a href="/manage/post/delete/" class="delete">删除</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

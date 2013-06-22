@@ -1,0 +1,33 @@
+$def with (tpldata)
+$:{UIModule('header')}
+	<div class="page-header">
+		<h1>账户修改 <small>账户密码修改</small></h1>
+	</div>
+	<span class="success"> ${tpldata['msg']} </span>
+	<form method="post" action="/manage/user" class="forms columnar">
+		<ul>
+			<li>
+				<section>用户名:</section> ${tpldata['user']}<br><br>
+			</li>
+			<li>
+				<section>新用户名:</section>
+				<input name="newname" type="text" class="width-33" id="newname" value="" />
+			</li>
+			<li>
+				<section>原密码:</section>
+				<input name="oldpwd" type="password" class="width-33" id="oldpwd" value="" />
+			</li>
+			<li>
+				<section>新密码:</section>
+				<input name="newpwd" type="password" class="width-33" id="pwd" value="" />
+			</li>
+			<li>
+				<section>确认密码:</section>
+				<input name="repwd" type="password" class="width-33" id="repwd" value="" />
+			</li>
+			<li class="push">
+				<input type="submit" name="send" class="btn btn-primary" value="修改密码" />
+			</li>		        		
+		</ul>
+	</form>
+$:{UIModule('footer')}

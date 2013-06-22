@@ -1,0 +1,178 @@
+$def with (tpldata)
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>	
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/static/css/Garfielt.css?v=1234" />
+	<script src="/static/js/jquery-1.4.2.min.js"></script>
+	<link href="/static/syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+    <script src="/static/syntaxhighlighter/scripts/shCore.js" type="text/javascript"></script>
+    <script src="/static/syntaxhighlighter/scripts/shAutoloader.js" type="text/javascript"></script>
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+	<script type="text/javascript">
+		function Trans(){
+			title = $$("#ptitle").val();
+			$$.getJSON("/trans/" + encodeURIComponent(title) + "/" + parseInt(Math.random()*1000000), function(data){
+				$$("#ptstitle").val(data['transTitle']);
+			}); 
+		}
+		function addtag(tag){
+			tname = tag.innerHTML;
+			tags = $$("#ptags").val();
+			if(typeof tag.flag == "undefined" || tag.flag == "0"){
+				if(tags == ""){
+					$$("#ptags").val(tname);
+				}else{
+					$$("#ptags").val(tags + ',' + tname);
+				}
+				tag.style.backgroundColor = "#A9A9A9";
+				tag.flag = "1";
+			}else{
+				sindex = tags.indexOf(tname);
+				if(tags == tname){
+					tags = "";
+				}else if(sindex == 0){
+					tags = tags.replace(tname + ",", "");
+				}else{
+					tags = tags.replace("," + tname, "");
+				}
+				$$("#ptags").val(tags);
+				tag.style.backgroundColor = "#fff";
+				tag.flag = "0";
+			}
+		}
+	</script>
+	<style type="text/css">
+	.btnCode {
+		background:transparent url(/static/images/code.gif) no-repeat 16px 16px;
+		background-position:2px 2px;
+	}
+	textarea {
+		font: 14px;
+	}
+	</style>
+</head>
+<body class="mainpage">
+<div id="container">
+	<div class="page-header">
+		<h1>发表文章 <small>发布修改文章</small></h1>
+	</div>
+	<div class="twothird">
+	<form method="post" action="" class="forms columnar">
+		<input type="hidden" name="pid" value="${tpldata['epost'].post_id}" />
+		<ul>
+			<li>
+			  <input type="text" name="ptitle" id="ptitle" value="${tpldata['epost'].post_title}" onBlur="Trans();" onClick="if(this.value=='在这里键入标题')this.value='';" class="width-100" />
+			</li>
+			<li>
+			  <select name="pcategory" class="selecter width-50" id="pcategory">
+        $for category in tpldata['categorys']:
+          $if category['category_type'] == 0:
+            <option value="${category['category_id']}" 
+            $if category['category_id'] == tpldata['epost'].post_category:
+              selected
+            >${category['category_name']}</option>
+        </select>
+			</li>
+			<li>
+			  <input type="text" name="ptstitle" id="ptstitle" value="${tpldata['epost'].post_url}" class="width-100" />
+			</li>
+			<li>
+				<textarea name="pcontent" id="pcontent" style="width:100%;height:480px;visibility:hidden;">${tpldata['epost'].post_content}</textarea>
+			</li>
+		</ul>
+	</div>
+	<div class="fifth">
+		<ul class="sbar">
+			<li class="snav">文章类型</li>
+			<li class="stnav">
+				<label><input name="ptype" type="radio" value="0" 
+				$if tpldata['epost'].post_type == 0 or tpldata['epost'].post_type == '':
+					checked
+				>文章</label>
+				<label><input name="ptype" type="radio" value="1"
+				$if tpldata['epost'].post_type == 1:
+					checked
+				>页面</label>
+			</li>
+			<li class="snav">文章标签</li>
+			<li class="stnav">
+				$for tag in tpldata['tags']:
+					<ol onClick="addtag(this);" tid="${tag.tag_id}">${tag.tag_name}</ol>
+				<input type="text" name="ptags" id="ptags" value="${tpldata['epost'].post_tags}" class="width-90" />
+			</li>
+			<li class="snav">发布状态</li>
+			<li class="stnav">
+				<label><input name="pstatus" type="radio" value="1" 
+				$if tpldata['epost'].post_status == 1 or tpldata['epost'].post_status == "":
+					checked
+				>发布</label>
+				<label><input name="pstatus" type="radio" value="0"
+				$if tpldata['epost'].post_status == 0:
+					checked
+				>草稿</label>
+			</li>
+			<li class="snav">文章置顶</li>
+			<li class="stnav">
+				<label><input name="pontop" type="checkbox" value="1" 
+				$if tpldata['epost'].post_ontop == 1:
+					checked
+				>置顶</label>
+			</li>
+			<li class="snav">评论设置</li>
+			<li class="stnav stnave">
+				<label><input name="pcomment" type="checkbox" value="1" 
+				$if tpldata['epost'].post_com_status == 1 or tpldata['epost'].post_com_status == "":
+					checked
+				>允许评论</label>
+			</li>
+			<li>
+				<input type="submit" name="send" class="btn btn-primary" value="保  存" />
+			</li>
+		</ul>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="/static/kindeditor/kindeditor-min.js"></script>
+<script type="text/javascript" src="/static/kindeditor/lang/zh_CN.js"></script>
+<script>
+	var editor;
+	KindEditor.ready(function(K) {
+		editor = K.create('textarea[name="pcontent"]', {
+			uploadJson : '/manage/upload',
+            fileManagerJson : '/manage/files',
+			allowFileManager : true
+		});
+		K('input[name=getHtml]').click(function(e) {
+			alert(editor.html());
+		});
+		K('input[name=isEmpty]').click(function(e) {
+			alert(editor.isEmpty());
+		});
+		K('input[name=getText]').click(function(e) {
+			alert(editor.text());
+		});
+		K('input[name=selectedHtml]').click(function(e) {
+			alert(editor.selectedHtml());
+		});
+		K('input[name=setHtml]').click(function(e) {
+			editor.html('<h3>Hello KindEditor</h3>');
+		});
+		K('input[name=setText]').click(function(e) {
+			editor.text('<h3>Hello KindEditor</h3>');
+		});
+		K('input[name=insertHtml]').click(function(e) {
+			editor.insertHtml('<strong>插入HTML</strong>');
+		});
+		K('input[name=appendHtml]').click(function(e) {
+			editor.appendHtml('<strong>添加HTML</strong>');
+		});
+		K('input[name=clear]').click(function(e) {
+			editor.html('');
+		});
+	});
+	KindEditor.options.cssData = 'body { font-size: 14px; }';
+
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+$def with (tpldata)
+$:{UIModule('header')}
+	<div class="page-header">
+		<h1>评论管理 <small>评论查看管理</small></h1>
+	</div>
+	<table class="hovered" width="100%">
+		<thead>
+			<tr>
+				<th>序号</th>
+				<th>评论人</th>
+				<th>评论文章</th>
+				<th>评论内容</th>
+				<th>联系方式</th>
+				<th>评论时间</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+		$for comment in tpldata['comments']:
+			<tr>
+				<td>$loop.index</td>
+				<td>$comment.comments_author</td>
+				<td>$comment.comments_post_id</td>
+				<td>$comment.comments_content</td>
+				<td>$comment.comments_email<br>$comment.comments_ip</td>
+				<td>$comment.comments_date</td>
+				<td><a href="/manage/comment/delete/$comment.comments_id" class="delete">删除</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

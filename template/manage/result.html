@@ -1,0 +1,37 @@
+$def with (tpldata)
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>	
+	<meta charset="utf-8">
+	<meta http-equiv="refresh" content="2; url=${tpldata['url']}" />
+	<link rel="stylesheet" type="text/css" href="/static/css/Garfielt.css" />
+	<script src="/static/js/jquery-1.4.2.min.js"></script>
+	<style>
+		#main {
+			text-align: center;
+			width:600px;
+			height:300px;
+			overflow-x:hidden;
+			overflow-y:hidden;
+			border: #666666 solid 6px;
+			margin:100px auto;
+			padding:2px 4px;
+			font-size:14px;
+			background:#f6f6f6;
+		}
+		#logo {
+			margin:50px auto;
+		}
+	</style>
+</head>
+<body class="mainpage">
+<div id="container">
+	<div class="page-header">
+		<h1>操作提示</h1>
+	</div>
+	<div id='main'>
+		<img id='logo' src="/static/images/${tpldata['flag']}.png" /><br>${tpldata['msg']}，正在或 <a href="${tpldata['url']}">点击此处</a> 跳转！
+	</div>
+</div>
+</body>
+</html>

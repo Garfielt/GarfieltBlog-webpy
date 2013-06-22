@@ -1,0 +1,39 @@
+$def with (tpldata)
+$:{UIModule('header')}
+<div class="page-header">
+	<h1>标签管理 <small>标签添加修改</small></h1>
+</div>
+<div class="third">
+	<form method="post" action="/manage/tags" class="forms columnar">
+		<input type="hidden" name="tagid" value="${tpldata['etag'].tag_id}" />
+			<ul>
+				<li>
+					<section>名称:</section><br>
+					<input name="tagname" type="text" class="width-50" id="tagname" value="${tpldata['etag'].tag_name}" />
+				</li>
+				<li class="push">
+					<input type="submit" name="send" class="btn btn-primary" value="  保  存  " />
+				</li>		        		
+			</ul>
+	</form>
+</div>
+<div class="twothird">
+	<table class="hovered" width="100%">
+		<thead>
+			<tr>
+				<th>序号</th>
+				<th>名称</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+		$for tag in tpldata['tags']:
+			<tr>
+				<td>${tag.tag_id}</td>
+				<td>${tag.tag_name}</td>
+				<td><a href="/manage/tags/edit/${tag.tag_id}" class="edit">编辑</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+$:{UIModule('footer')}

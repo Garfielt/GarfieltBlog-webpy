@@ -1,0 +1,78 @@
+$def with (tpldata)
+$:{UIModule('header')}
+<div id="content" class="left">
+    ${Post_format(tpldata['post'])}
+    <div class="post">
+    <h1>${tpldata['post'].post_title}<div class="post-info page">发布于: ${tpldata['post'].post_date} &nbsp;&nbsp; 标签:$:{tpldata['post'].tags} &nbsp;&nbsp; 浏览量:${tpldata['post'].post_view}</div></h1>
+    <div class="post-content">$:{tpldata['post'].post_content}</div>
+    </div>
+    <div class="pre_next">
+        $if tpldata['post_next']:
+            ${Post_format(tpldata['post_next'])}
+            <a href="${tpldata['post_next'].url}" title="${tpldata['post_next'].post_title}" class="left">新一篇: ${tpldata['post_next'].post_title}</a>
+        $if tpldata['post_prev']:
+            ${Post_format(tpldata['post_prev'])}
+            <a href="${tpldata['post_prev'].url}" title="${tpldata['post_prev'].post_title}" class="right">旧一篇: ${tpldata['post_prev'].post_title}</a>
+        <div class="clear"></div>
+    </div>
+    <div class="relative-post">
+        <b>相关文章：</b>
+        <ul>
+        $for rpost in tpldata['related_posts']: 
+            $if rpost.post_url == "":
+              <li><a href="/blog/${rpost.post_id}.html">${rpost.post_title}</a></li>
+            $else:
+              <li><a href="/blog/${rpost.post_url}.html">${rpost.post_title}</a></li>
+        </ul>
+    </div>
+    <!-- Comment -->
+    <div>
+    <h4><a name="Comments"></a>
+    $if tpldata['post'].post_com_num == 0:
+        当前暂无评论
+    $else:
+        已有 ${tpldata['post'].post_com_num} 条评论
+    </h4>
+    <ol class="comment-list">
+      $for comment in tpldata['related_comments']: 
+          <li class="comment-body comment-parent comment-odd">
+          <div class="comment-author"><a name="Comment_${comment.comments_id}"><img class="avatar" src="https://secure.gravatar.com/avatar/${Md5(comment.comments_email)}?s=32&r=G&d=${tpldata['setting']['webcdn']}/static/images/G.gif" alt="Garfielt Blog" width="32" height="32" /></a><cite class="fn"><a href="${comment.comments_url}" rel="external nofollow" id="author_${comment.comments_id}">${comment.comments_author}</a>  (${comment.comments_date})</cite>
+          </div>
+          <p>${comment.comments_content}</p>
+          $if tpldata['post'].post_com_status == 1:
+              <div class="comment-reply">
+                  <a href="#comcont" rel="nofollow" onclick="return Commentreply('${comment.comments_author}');">回复</a>
+              </div>
+          </li>
+    </ol>
+    $if tpldata['post'].post_com_status == 1:
+            $if tpldata['setting']['plug_com']:
+                $:{tpldata['setting']['plug_com']}
+            $else:
+                <div class="respond">
+                  <h4 id="response">添加新评论</h4>
+                  <form method="post" action="/comment/${tpldata['post'].post_id}" id="comment_form">
+                    <p>
+                      <label for="author">昵称<span class="required">*</span></label>
+                      <input type="text" name="author" id="author" class="text" size="15" value="" />
+                    </p>
+                    <p>
+                      <label for="mail">邮箱<span class="required">*</span></label>
+                      <input type="text" name="mail" id="mail" class="text" size="15" value="" />
+                    </p>
+                    <p>
+                      <label for="url">网址</label>
+                      <input type="text" name="url" id="url" class="text" size="15" value="" />
+                      <a name="comcont" id="comcont"></a>
+                    </p>
+                    <p><textarea rows="5" cols="50" name="text" id="comcont" class="textarea"></textarea></p>
+                    <p><input type="submit" value="提交" class="submit" /></p>
+                  </form>
+                </div>
+    $else:
+        <h4>评论已关闭</h4>
+    </div>
+    <!-- Comment -->
+</div>
+$:{UIModule('sidebar')}
+$:{UIModule('footer')}

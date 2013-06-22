@@ -1,0 +1,36 @@
+$def with (tpldata)
+$:{UIModule('header')}
+	<div class="page-header">
+		<h1>管理首页 <small>欢迎登陆</small></h1>
+	</div>
+	<table class="hovered" width="100%">
+		<thead>
+			<tr>
+				<th>项目名称</th>
+				<th>内容详情</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>文章管理:</td>
+				<td>共发表文章 <span class="success"> ${tpldata['totalpost']} </span> 篇  <a href="/manage/post">管理</a> <a href="/manage/post/new">发表</a></td>
+			</tr>
+			<tr>
+				<td>系统介绍:</td>
+				<td>Garfielt Blog (web.py) 一款基于web.py的轻量级开源博客系统！</td>
+			</tr>
+			<tr>
+				<td>版本信息:</td>
+				<td>当前版本: <b>${tpldata['version']}</b> <a href="http://support.iscsky.net/version/webpyblog/${tpldata['version']}" target="_blank">检查更新</a></td>
+			</tr>
+			<tr>
+				<td>系统资源:</td>
+				<td><a href="http://support.iscsky.net/document/webpyblog/${tpldata['version']}" target="_blank">使用教程</a> <a href="http://support.iscsky.net/theme/webpyblog/${tpldata['version']}" target="_blank">模板下载</a> <a href="http://support.iscsky.net/feedback/webpyblog/${tpldata['version']}" target="_blank">问题反馈</a> <a href="http://www.iscsky.net/" target="_blank">关于Garfielt</a></td>
+			</tr>
+			<tr>
+				<td>系统消息:</td>
+				<td><script type="text/javascript" src="http://support.iscsky.net/info/webpyblog/${tpldata['version']}"></script></td>
+			</tr>
+		</tbody>
+	</table>
+$:{UIModule('footer')}

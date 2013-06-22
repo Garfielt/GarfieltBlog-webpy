@@ -1,0 +1,42 @@
+$def with (tpldata)
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>${tpldata['setting']['webtitle']}</title>
+<meta name="description" content="${tpldata['setting']['webdes']}" />
+<meta name="keywords" content="${tpldata['setting']['webkeywords']}" />
+<link rel="stylesheet" type="text/css" media="all" href="${tpldata['setting']['webcdn']}/static/oulipo/style.css" />
+<link type="text/css" rel="stylesheet" href="${tpldata['setting']['webcdn']}/static/syntaxhighlighter/styles/shCore.css"/>
+<link type="text/css" rel="stylesheet" href="${tpldata['setting']['webcdn']}/static/syntaxhighlighter/styles/shThemeDefault.css"/>
+<!--[if lte IE 7]>
+<link href="${tpldata['setting']['webcdn']}/static/oulipo/ie.css" type="text/css" rel="stylesheet" media="screen" />
+<![endif]-->
+<!--[if lte IE 6]>
+<link href="${tpldata['setting']['webcdn']}/static/oulipo/ie6.css" type="text/css" rel="stylesheet" media="screen" />
+<![endif]-->
+</head>
+<body>
+	<div id="header" class="group">
+		<div id="header-inner"></div>
+	</div>
+	<div id="wrap">
+		<div id="wrap-content">
+			<div id="main_nav">
+				<h1 class="masthead"><a href="/">${tpldata['setting']['webtitle']}</a></h1>
+				<p class="description">${tpldata['setting']['websubtitle']}</p>
+				<ul>
+                    <li><a href="/">首  页</a></li>
+                    $for category in tpldata['categorys']:
+                        $if category['category_type'] == 1:
+                            <li class="page_item"><a title="${category['category_description']}" href="${category['category_short']}">${category['category_name']}</a></li>
+                        $else:
+                            <li class="page_item"><a title="${category['category_description']}" href="/category/${category['category_short']}">${category['category_name']}</a></li>
+                </ul>
+                <div id="sear">
+                    <form id="searchform" action="/search" method="post">
+                    <div><input id="search" size=12 name="s"><input id="searchsubmit" type="submit" value="搜索"></div>
+                    </form>
+                </div>
+            </div>
+            
+            <div id="content">

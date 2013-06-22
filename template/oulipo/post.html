@@ -1,0 +1,98 @@
+$def with (tpldata)
+$:{UIModule('header')}
+<div id="entry_content">
+    <!-- post start -->
+    <div class="post hentry category-article">
+        ${Post_format(tpldata['post'])}
+        <h2>${tpldata['post'].post_title}</h2>
+        <p class=date>${tpldata['post'].post_date} § <span class=commentcount>${tpldata['post'].post_view}</span> § <span class=commentcount>${tpldata['post'].post_com_num}</span></p>
+        <!-- JiaThis Button BEGIN -->
+        <div class="jiathis_style_24x24">
+            <a class="jiathis_button_qzone"></a>
+            <a class="jiathis_button_tsina"></a>
+            <a class="jiathis_button_tqq"></a>
+            <a class="jiathis_button_weixin"></a>
+            <a class="jiathis_button_renren"></a>
+            <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+            <a class="jiathis_counter_style"></a>
+        </div><br/>
+        <!-- JiaThis Button END -->
+        <br/>
+        <div class=entry>
+            <p>$:{tpldata['post'].post_content}</p>
+            <p class="tags">Tags: $:{tpldata['post'].tags}</p>
+            <p class="prev_next">
+            $if tpldata['post_next']:
+                ${Post_format(tpldata['post_next'])}
+                <a href="${tpldata['post_next'].url}" title="${tpldata['post_next'].post_title}" class="alignleft">新一篇: ${tpldata['post_next'].post_title}</a>
+            $if tpldata['post_prev']:
+                ${Post_format(tpldata['post_prev'])}
+                <a href="${tpldata['post_prev'].url}" title="${tpldata['post_prev'].post_title}" class="alignright">旧一篇: ${tpldata['post_prev'].post_title}</a>
+            </p>
+            <br><br>
+            <p class="tags">相关文章：</p>
+            <p>
+            $for rpost in tpldata['related_posts']: 
+                $if rpost.post_url == "":
+                  <li><a href="/blog/${rpost.post_id}.html">${rpost.post_title}</a></li>
+                $else:
+                  <li><a href="/blog/${rpost.post_url}.html">${rpost.post_title}</a></li>
+            </p>
+        </div>
+    </div>
+    <!-- post end -->
+    <!-- Comment -->
+    <div id="comments">
+        <h4>
+        $if tpldata['post'].post_com_num == 0:
+            当前暂无评论
+        $else:
+            已有 ${tpldata['post'].post_com_num} 条评论
+        </h4>
+        <ol class="comment-list">
+        $for comment in tpldata['related_comments']: 
+            <li class="comment-body comment-parent comment-odd">
+                <div class="comment-author">
+                    <img class="avatar" src="https://secure.gravatar.com/avatar/${Md5(comment.comments_email)}?s=32&r=G&d=${tpldata['setting']['webcdn']}/static/images/G.gif" alt="Garfielt Blog" width="32" height="32" /><cite class="fn"><a href="${comment.comments_url}" rel="external nofollow" id="author_${comment.comments_id}">${comment.comments_author}</a></cite>
+                </div>
+                <div class="comment-meta">
+                    <a name="Comment_${comment.comments_id}" id="Comment_${comment.comments_id}">${comment.comments_date}</a>
+                </div>
+                <p>${comment.comments_content}</p>
+                $if tpldata['post'].post_com_status == 0:
+                <div class="comment-reply">
+                    <a href="#comcont" rel="nofollow" onclick="return Commentreply('${comment.comments_author}');">回复</a>
+                </div>
+            </li>
+        </ol>
+        $if tpldata['post'].post_com_status == 1:
+            $if tpldata['setting']['plug_com']:
+                $:{tpldata['setting']['plug_com']}
+            $else:
+                <div id="" class="respond">
+                    <h4 id="response">添加新评论</h4>
+                    <form method="post" action="/comment/${tpldata['post'].post_id}" id="comment_form">
+                        <p>
+                        <label for="author">昵称<span class="required">*</span></label>
+                        <input type="text" name="author" id="author" class="text" size="15" value="" />
+                        </p>
+                        <p>
+                        <label for="mail">邮箱<span class="required">*</span></label>
+                        <input type="text" name="mail" id="mail" class="text" size="15" value="" />
+                        </p>
+                        <p>
+                        <label for="url">网址</label>
+                        <input type="text" name="url" id="url" class="text" size="15" value="" />
+                        <a name="comcont"></a>
+                        </p>
+                        <p><textarea rows="5" cols="50" name="text" id="comcont" class="textarea"></textarea></p>
+                        <p><input type="submit" value="提交" class="submit" /></p>
+                    </form>
+                </div>
+        $else:
+            <h4>评论已关闭</h4>
+    </div>
+    <!-- Comment -->
+</div>
+$:{UIModule('sidebar')}
+$:{UIModule('footer')}
