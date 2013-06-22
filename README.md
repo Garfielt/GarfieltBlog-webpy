@@ -9,7 +9,7 @@ to WordPress that provides commonly functions and featurs of a blog system.
 
 Garfielt Blog是一款基于web.py的轻量级开源博客系统。
 
-可访问http://blog.iscsky.net，查看体验效果。
+可访问 http://blog.iscsky.net 查看体验效果。
 
 开发初衷是定制一款自己使用顺手的博客，个人不喜欢臃肿，简洁至上，开发过程中力求代码简洁（个人能力范围内^_^）！
 
@@ -45,7 +45,8 @@ Roadmap：
 
 未完待补充……
 
-Homepage and details: http://www.iscsky.net/
+Homepage and details:
+http://www.iscsky.net/
 http://blog.iscsky.net
 Garfielt@新浪微博 http://weibo.com/liuwt123
 
