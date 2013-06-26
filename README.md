@@ -43,6 +43,15 @@ Roadmap：
 
 ……
 
+本地安装使用：
+1、git checkout
+2、确保web.py已安装
+3、python index.py
+
+data目录下新提交了一个Sqlite样库，无需更改配置本地可体验使用，。
+
+现版本不建议上线正式使用,代码正在部分重构、改bug，本周末放出！
+
 未完待补充……
 
 Homepage and details:
