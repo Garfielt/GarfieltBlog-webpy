@@ -4,7 +4,8 @@ Garfielt-Blog
 GarfieltBlog(webpy) is a light weight blog system base on web.py.It is similar 
 to WordPress that provides commonly functions and featurs of a blog system.
 
-![效果图](http://github.com/Garfielt/GarfieltBlog-webpy/blob/release/GarfieltBlog.jpg?raw=true)
+![效果图](https://raw.githubusercontent.com/Garfielt/GarfieltBlog-webpy/blob/release/GarfieltBlog.jpg?raw=true)
+
 
 
 Garfielt Blog是一款基于web.py的轻量级开源博客系统。
