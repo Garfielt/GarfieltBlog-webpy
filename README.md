@@ -4,60 +4,60 @@ Garfielt-Blog
 GarfieltBlog(webpy) is a light weight blog system base on web.py.It is similar 
 to WordPress that provides commonly functions and featurs of a blog system.
 
-![Ð§¹ûÍ¼](http://github.com/Garfielt/GarfieltBlog-webpy/raw/master/GarfieltBlog.jpg)
+![æ•ˆæžœå›¾](http://github.com/Garfielt/GarfieltBlog-webpy/blob/release/GarfieltBlog.jpg?raw=true)
 
 
-Garfielt BlogÊÇÒ»¿î»ùÓÚweb.pyµÄÇáÁ¿¼¶¿ªÔ´²©¿ÍÏµÍ³¡£
+Garfielt Blogæ˜¯ä¸€æ¬¾åŸºäºŽweb.pyçš„è½»é‡çº§å¼€æºåšå®¢ç³»ç»Ÿã€‚
 
-¿É·ÃÎÊ http://blog.iscsky.net ²é¿´ÌåÑéÐ§¹û¡£
+å¯è®¿é—® http://blog.iscsky.net æŸ¥çœ‹ä½“éªŒæ•ˆæžœã€‚
 
-¿ª·¢³õÖÔÊÇ¶¨ÖÆÒ»¿î×Ô¼ºÊ¹ÓÃË³ÊÖµÄ²©¿Í£¬¸öÈË²»Ï²»¶Ó·Ö×£¬¼ò½àÖÁÉÏ£¬¿ª·¢¹ý³ÌÖÐÁ¦Çó´úÂë¼ò½à£¨¸öÈËÄÜÁ¦·¶Î§ÄÚ^_^£©£¡
+å¼€å‘åˆè¡·æ˜¯å®šåˆ¶ä¸€æ¬¾è‡ªå·±ä½¿ç”¨é¡ºæ‰‹çš„åšå®¢ï¼Œä¸ªäººä¸å–œæ¬¢è‡ƒè‚¿ï¼Œç®€æ´è‡³ä¸Šï¼Œå¼€å‘è¿‡ç¨‹ä¸­åŠ›æ±‚ä»£ç ç®€æ´ï¼ˆä¸ªäººèƒ½åŠ›èŒƒå›´å†…^_^ï¼‰ï¼
 
-ÏÖ±àÂëÒÑ½øÈëÊÕÎ²½×¶Î£¬´úÂëÔñ»ú·¢²¼£¬Èç¹û¹Ø×¢µÄ»°¿ÉÎ¢²©£¨Garfielt@ÐÂÀËÎ¢²©£©»òÔÚÆÀÂÛ´¦ÁôÏÂÁªÏµ·½Ê½¼°¶Ô¹¦ÄÜµÄÐèÇóÇé¿ö£¬ÎÒ»á¸ù¾Ý·´À¡Çé¿öÔö¼Ó¸ü¸Ä¹¦ÄÜ£¬·¢²¼Ê±»áÓèÒÔÍ¨ÖªËµÃ÷¡£Õæ³ÏÆÚÍûÄãµÄ¹Ø×¢£¡
+çŽ°ç¼–ç å·²è¿›å…¥æ”¶å°¾é˜¶æ®µï¼Œä»£ç æ‹©æœºå‘å¸ƒï¼Œå¦‚æžœå…³æ³¨çš„è¯å¯å¾®åšï¼ˆGarfielt@æ–°æµªå¾®åšï¼‰æˆ–åœ¨è¯„è®ºå¤„ç•™ä¸‹è”ç³»æ–¹å¼åŠå¯¹åŠŸèƒ½çš„éœ€æ±‚æƒ…å†µï¼Œæˆ‘ä¼šæ ¹æ®åé¦ˆæƒ…å†µå¢žåŠ æ›´æ”¹åŠŸèƒ½ï¼Œå‘å¸ƒæ—¶ä¼šäºˆä»¥é€šçŸ¥è¯´æ˜Žã€‚çœŸè¯šæœŸæœ›ä½ çš„å…³æ³¨ï¼
 
-ÏµÍ³¹¦ÄÜ£º
+ç³»ç»ŸåŠŸèƒ½ï¼š
 
-1¡¢³£¹æ²©¿ÍÏµÍ³µÄÔöÉ¾¸Ä²é£¬·ÖÀà±êÇ©¹ÜÀí£¬Êý¾Ý¸½¼þ¹ÜÀí£¬ÆÀÂÛ¼°ÓÑÇéÁ´½Ó¹ÜÀí£»
+1ã€å¸¸è§„åšå®¢ç³»ç»Ÿçš„å¢žåˆ æ”¹æŸ¥ï¼Œåˆ†ç±»æ ‡ç­¾ç®¡ç†ï¼Œæ•°æ®é™„ä»¶ç®¡ç†ï¼Œè¯„è®ºåŠå‹æƒ…é“¾æŽ¥ç®¡ç†ï¼›
 
-2¡¢×Ô¶¨ÖÆÊæ·þµÄURL£¬ÎÄÕÂ±êÌâ¿ÉÑ¡×ª»»ÎªEnglish»òPingyin£»
+2ã€è‡ªå®šåˆ¶èˆ’æœçš„URLï¼Œæ–‡ç« æ ‡é¢˜å¯é€‰è½¬æ¢ä¸ºEnglishæˆ–Pingyinï¼›
 
-3¡¢¶àÖØ»º´æ²ßÂÔ£»
+3ã€å¤šé‡ç¼“å­˜ç­–ç•¥ï¼›
 
-4¡¢·½±ã¼¯³ÉµÚÈý·½Éç½»»¯Ä£¿é£»
+4ã€æ–¹ä¾¿é›†æˆç¬¬ä¸‰æ–¹ç¤¾äº¤åŒ–æ¨¡å—ï¼›
 
-5¡¢ÊÊºÏ³ÌÐòÔ±Ê¹ÓÃ£¬ÄÚÖÃ´úÂë¸ßÁÁ£¬DIY´úÂë£¬°µ²Ø²¿·ÖÐ¡²Êµ°@_@£»
+5ã€é€‚åˆç¨‹åºå‘˜ä½¿ç”¨ï¼Œå†…ç½®ä»£ç é«˜äº®ï¼ŒDIYä»£ç ï¼Œæš—è—éƒ¨åˆ†å°å½©è›‹@_@ï¼›
 
-6¡¢ÄÚÖÃÄ£°å¿É¹©Ñ¡Ôñ£»
+6ã€å†…ç½®æ¨¡æ¿å¯ä¾›é€‰æ‹©ï¼›
 
-7¡¢Ö§³ÖSAE¡¢BAE¼°Ô­ÉúÌ¬»·¾³£»
+7ã€æ”¯æŒSAEã€BAEåŠåŽŸç”Ÿæ€çŽ¯å¢ƒï¼›
 
-8¡¢¶àÊý¾Ý¿âÖ§³Ö£¬Ä¿Ç°Ö§³ÖMysql¡¢Sqlite£¬ºóÐøÂ½ÐøÔö¼Ó£»
+8ã€å¤šæ•°æ®åº“æ”¯æŒï¼Œç›®å‰æ”¯æŒMysqlã€Sqliteï¼ŒåŽç»­é™†ç»­å¢žåŠ ï¼›
 
-¡­¡­
+â€¦â€¦
 
-Roadmap£º
+Roadmapï¼š
 
-1¡¢ÉÏÊö¹¦ÄÜÍêÉÆ£¬Bug free£»
-2¡¢Ôö¼Ó²å¼þ¹¦ÄÜ£¬·½±ã¶þ´Î¿ª·¢¼°ÍØÕ¹£»
-3¡¢ÍêÉÆ°²×°¡¢¿ª·¢¡¢ËµÃ÷ÎÄµµ£»
+1ã€ä¸Šè¿°åŠŸèƒ½å®Œå–„ï¼ŒBug freeï¼›
+2ã€å¢žåŠ æ’ä»¶åŠŸèƒ½ï¼Œæ–¹ä¾¿äºŒæ¬¡å¼€å‘åŠæ‹“å±•ï¼›
+3ã€å®Œå–„å®‰è£…ã€å¼€å‘ã€è¯´æ˜Žæ–‡æ¡£ï¼›
 
-¡­¡­
+â€¦â€¦
 
-±¾µØ°²×°Ê¹ÓÃ£º
-1¡¢git checkout
-2¡¢È·±£web.pyÒÑ°²×°
-3¡¢python index.py
+æœ¬åœ°å®‰è£…ä½¿ç”¨ï¼š
+1ã€git checkout
+2ã€ç¡®ä¿web.pyå·²å®‰è£…
+3ã€python index.py
 
-dataÄ¿Â¼ÏÂÐÂÌá½»ÁËÒ»¸öSqliteÑù¿â£¬ÎÞÐè¸ü¸ÄÅäÖÃ±¾µØ¿ÉÌåÑéÊ¹ÓÃ£¬¡£
+dataç›®å½•ä¸‹æ–°æäº¤äº†ä¸€ä¸ªSqliteæ ·åº“ï¼Œæ— éœ€æ›´æ”¹é…ç½®æœ¬åœ°å¯ä½“éªŒä½¿ç”¨ï¼Œã€‚
 
-ÏÖ°æ±¾²»½¨ÒéÉÏÏßÕýÊ½Ê¹ÓÃ,´úÂëÕýÔÚ²¿·ÖÖØ¹¹¡¢¸Äbug£¬±¾ÖÜÄ©·Å³ö£¡
+çŽ°ç‰ˆæœ¬ä¸å»ºè®®ä¸Šçº¿æ­£å¼ä½¿ç”¨,ä»£ç æ­£åœ¨éƒ¨åˆ†é‡æž„ã€æ”¹bugï¼Œæœ¬å‘¨æœ«æ”¾å‡ºï¼
 
-Î´Íê´ý²¹³ä¡­¡­
+æœªå®Œå¾…è¡¥å……â€¦â€¦
 
 Homepage and details:
 http://www.iscsky.net/
 http://blog.iscsky.net
-Garfielt@ÐÂÀËÎ¢²© http://weibo.com/liuwt123
+Garfielt@æ–°æµªå¾®åš http://weibo.com/liuwt123
 
 Copyright (c) 2012, Garfielt <liuwt123@gmail.com>.
 License: MIT (see LICENSE.txt for details)
